@@ -1,0 +1,48 @@
+---
+title: "Feedback"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: html_document
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,     # don't show code chunks
+  message = FALSE,  # don't show code messages
+  warning = FALSE,  # don't show code warnings
+  out.width = "75%" # show images at 75% page width
+)
+library(markr)
+```
+
+```{r, eval=F}
+# set eval=T to knit this example for debugging
+marks <- demo_marks  # load your data as 
+id <- marks[1, ]    # selects just the first row
+```
+
+## Research Summary Report for `r id$name`
+
+### General Information
+
+This is a basic summary report of the three behaviors we observed in the laboratory experiment which you took part on `r id$date`.
+
+Note that week collected information on the following areas: passiveness, aggression, and disinterest. These were coded by research assistants and the mentoring professor.
+
+### Passiveness Behaviors
+
+After observation, your passiveness was rated as **`r id$bx1`**. The possible range of these scores was 1 to 5. 
+
+### Aggresssion Behaviors
+
+After observation, your aggression was rated as **`r id$bx2`**. The possible range of these scores was 1 to 7.
+
+### Disinterest
+
+After observation, your disinterest was rated as **`r id$bx3`**. The possible range of these scores was 1 to 10.
+
+### Additional Comments
+
+These are comments from the behavior coders, as approved by the mentoring professor:
+
+`r id$comments`

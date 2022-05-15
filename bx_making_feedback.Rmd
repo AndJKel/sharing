@@ -1,0 +1,30 @@
+---
+title: "Untitled"
+author: "Andrew J. Kelly"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, collapse = TRUE, out.width = "75%")
+library(markr)
+```
+
+```{r}
+# all data in one table (csv or excel)
+marks <- read_marks("bx_marks.csv")
+```
+
+```{r, echo = FALSE}
+id <- marks[2, ]
+```
+
+```{r}
+# render the feedback files
+make_feedback(
+  marks = marks,
+  template = "bx_template.Rmd",
+  filename = "fb/[name].html",
+)
+```
